@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flow Chart | AI Caption Generator</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <i class="fa-solid fa-robot"></i>
+        AI Caption Generator
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="/">Home</a>
+        </li>
+
+        <li>
+            <a href="/generate">Generate</a>
+        </li>
+
+        <li>
+            <a href="/features">Features</a>
+        </li>
+
+        <li>
+            <a href="/about">About</a>
+        </li>
+
+        <li>
+            <a href="/flowchart" class="active">Flow Chart</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="flow-hero">
+
+    <div class="flow-hero-content">
+
+        <div class="flow-badge">
+            <i class="fa-solid fa-diagram-project"></i>
+            SYSTEM WORKFLOW
+        </div>
+
+        <h1>
+            How the
+            <span>AI Caption Generator</span>
+            Works
+        </h1>
+
+        <p>
+            Follow the complete workflow from uploading your
+            image or video to receiving AI-generated captions,
+            hashtags and emojis.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FLOW CHART ================= -->
+
+<section class="flow-section">
+
+    <div class="flow-section-title">
+
+        <span>PROJECT FLOW</span>
+
+        <h2>System Flow Chart</h2>
+
+        <p>
+            The flow chart represents the main process followed
+            by the AI Caption Generator.
+        </p>
+
+    </div>
+
+
+    <div class="flowchart-container">
+
+
+        <!-- START -->
+
+        <div class="flow-node start-node">
+
+            <div class="flow-icon">
+                <i class="fa-solid fa-play"></i>
+            </div>
+
+            <div>
+                <strong>START</strong>
+                <small>Begin the application</small>
+            </div>
+
+        </div>
+
+
+        <div class="flow-arrow">
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+
+
+        <!-- OPEN WEBSITE -->
+
+        <div class="flow-node">
+
+            <div class="flow-icon">
+                <i class="fa-solid fa-globe"></i>
+            </div>
+
+            <div>
+                <strong>Open AI Caption Generator</strong>
+                <small>User opens the web application</small>
+            </div>
+
+        </div>
+
+
+        <div class="flow-arrow">
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+
+
+        <!-- SELECT CONTENT -->
+
+        <div class="flow-node">
+
+            <div class="flow-icon">
+                <i class="fa-solid fa-photo-film"></i>
+            </div>
+
+            <div>
+                <strong>Select Image or Video</strong>
+                <small>Choose the type of content</small>
+            </div>
+
+        </div>
+
+
+        <div class="flow-arrow">
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+
+
+        <!-- UPLOAD -->
+
+        <div class="flow-node">
+
+            <div class="flow-icon">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+            </div>
+
+            <div>
+                <strong>Upload Media File</strong>
+                <small>Upload an image or video</small>
+            </div>
+
+        </div>
+
+
+        <div class="flow-arrow">
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+
+
+        <!-- OPTIONS -->
+
+        <div class="flow-node">
+
+            <div class="flow-icon">
+                <i class="fa-solid fa-sliders"></i>
+            </div>
+
+            <div>
+                <strong>Select Preferences</strong>
+                <small>Platform • Style • Caption Length</small>
+            </div>
+
+        </div>
+
+
+        <div class="flow-arrow">
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+
+
+        <!-- FLASK -->
+
+        <div class="flow-node backend-node">
+
+            <div class="flow-icon">
+                <i class="fa-solid fa-server"></i>
+            </div>
+
+            <div>
+                <strong>Flask Backend</strong>
+                <small>Receives and processes the request</small>
+            </div>
+
+        </div>
+
+
+        <div class="flow-arrow">
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+
+
+        <!-- AI -->
+
+        <div class="flow-node ai-node">
+
+            <div class="flow-icon">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+
+            <div>
+                <strong>Gemini AI Analysis</strong>
+                <small>Analyzes the uploaded content</small>
+            </div>
+
+        </div>
+
+
+        <div class="flow-arrow">
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+
+
+        <!-- GENERATE -->
+
+        <div class="flow-node ai-node">
+
+            <div class="flow-icon">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+
+            <div>
+                <strong>Generate Content</strong>
+                <small>AI creates captions, hashtags and emojis</small>
+            </div>
+
+        </div>
+
+
+        <div class="flow-arrow">
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+
+
+        <!-- THREE CAPTIONS -->
+
+        <div class="output-title">
+            Generated Results
+        </div>
+
+
+        <div class="caption-output-grid">
+
+            <div class="caption-output-card">
+
+                <i class="fa-solid fa-1"></i>
+
+                <h3>Caption 1</h3>
+
+                <p>
+                    First AI-generated caption suggestion
+                </p>
+
+            </div>
+
+
+            <div class="caption-output-card">
+
+                <i class="fa-solid fa-2"></i>
+
+                <h3>Caption 2</h3>
+
+                <p>
+                    Second AI-generated caption suggestion
+                </p>
+
+            </div>
+
+
+            <div class="caption-output-card">
+
+                <i class="fa-solid fa-3"></i>
+
+                <h3>Caption 3</h3>
+
+                <p>
+                    Third AI-generated caption suggestion
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="flow-arrow">
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+
+
+        <!-- HASHTAGS + EMOJIS -->
+
+        <div class="result-extra-grid">
+
+            <div class="result-extra-card">
+
+                <div class="result-extra-icon">
+                    <i class="fa-solid fa-hashtag"></i>
+                </div>
+
+                <div>
+                    <strong>Smart Hashtags</strong>
+                    <p>5 relevant hashtags</p>
+                </div>
+
+            </div>
+
+
+            <div class="result-extra-card">
+
+                <div class="result-extra-icon">
+                    <i class="fa-regular fa-face-smile"></i>
+                </div>
+
+                <div>
+                    <strong>Emoji Suggestions</strong>
+                    <p>3 relevant emojis</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="flow-arrow">
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+
+
+        <!-- DATABASE -->
+
+        <div class="flow-node database-node">
+
+            <div class="flow-icon">
+                <i class="fa-solid fa-database"></i>
+            </div>
+
+            <div>
+                <strong>SQLite Database</strong>
+                <small>Caption information is stored</small>
+            </div>
+
+        </div>
+
+
+        <div class="flow-arrow">
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+
+
+        <!-- DISPLAY -->
+
+        <div class="flow-node">
+
+            <div class="flow-icon">
+                <i class="fa-solid fa-display"></i>
+            </div>
+
+            <div>
+                <strong>Display Final Result</strong>
+                <small>User views the generated content</small>
+            </div>
+
+        </div>
+
+
+        <div class="flow-arrow">
+            <i class="fa-solid fa-arrow-down"></i>
+        </div>
+
+
+        <!-- END -->
+
+        <div class="flow-node end-node">
+
+            <div class="flow-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+
+            <div>
+                <strong>END</strong>
+                <small>Caption generation completed</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TECHNOLOGY FLOW ================= -->
+
+<section class="technology-flow-section">
+
+    <div class="flow-section-title">
+
+        <span>TECHNOLOGY CONNECTION</span>
+
+        <h2>How Technologies Work Together</h2>
+
+        <p>
+            Each technology performs a specific role in the
+            AI Caption Generator.
+        </p>
+
+    </div>
+
+
+    <div class="tech-flow-grid">
+
+        <div class="tech-flow-card">
+
+            <div class="tech-flow-icon">
+                <i class="fa-brands fa-html5"></i>
+            </div>
+
+            <h3>Frontend</h3>
+
+            <p>
+                HTML, CSS and JavaScript create the
+                user interface.
+            </p>
+
+        </div>
+
+
+        <div class="tech-flow-arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+
+        <div class="tech-flow-card">
+
+            <div class="tech-flow-icon">
+                <i class="fa-brands fa-python"></i>
+            </div>
+
+            <h3>Python + Flask</h3>
+
+            <p>
+                Handles requests and connects the
+                frontend with AI.
+            </p>
+
+        </div>
+
+
+        <div class="tech-flow-arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+
+        <div class="tech-flow-card">
+
+            <div class="tech-flow-icon">
+                <i class="fa-solid fa-robot"></i>
+            </div>
+
+            <h3>Gemini AI</h3>
+
+            <p>
+                Analyzes media and generates
+                meaningful content.
+            </p>
+
+        </div>
+
+
+        <div class="tech-flow-arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+
+        <div class="tech-flow-card">
+
+            <div class="tech-flow-icon">
+                <i class="fa-solid fa-database"></i>
+            </div>
+
+            <h3>SQLite</h3>
+
+            <p>
+                Stores generated caption information
+                and application data.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="flow-cta">
+
+    <div>
+
+        <h2>
+            Ready to Generate Your Caption?
+        </h2>
+
+        <p>
+            Upload your content and experience the AI-powered
+            caption generation process.
+        </p>
+
+    </div>
+
+
+    <a href="/generate">
+
+        Start Generating
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+    </a>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="home-footer">
+
+    <div>
+
+        <strong>
+            <i class="fa-solid fa-robot"></i>
+            AI Caption Generator
+        </strong>
+
+        <p>
+            Professional AI-powered social media caption assistant.
+        </p>
+
+    </div>
+
+
+    <div>
+        © 2026 AI Caption Generator
+    </div>
+
+</footer>
+
+
+</body>
+</html>

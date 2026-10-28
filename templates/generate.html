@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Generate | AI Caption Generator</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <i class="fa-solid fa-robot"></i>
+        AI Caption Generator
+    </div>
+
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+
+        <li>
+            <a href="/generate" class="active">Generate</a>
+        </li>
+
+        <li>
+            <a href="/features">Features</a>
+        </li>
+
+        <li>
+            <a href="/about">About</a>
+        </li>
+        <li>
+            <a href="/flowchart">Flow Chart</a>
+        </li>
+    </ul>
+
+</nav>
+
+
+<!-- ================= GENERATE PAGE ================= -->
+
+<main class="generate-page">
+
+    <section class="generate-container">
+
+        <div class="generate-heading">
+
+            <span class="section-label">
+                CREATE CONTENT
+            </span>
+
+            <h1>
+                Generate Your Caption
+            </h1>
+
+            <p>
+                Upload your image or video and let AI create
+                meaningful social media captions for you.
+            </p>
+
+        </div>
+
+
+        <!-- ================= CONTENT TYPE ================= -->
+
+        <div class="content-tabs">
+
+            <button type="button"
+                    class="content-tab active"
+                    id="imageTab"
+                    onclick="showImage()">
+
+                <i class="fa-solid fa-image"></i>
+                Image
+
+            </button>
+
+
+            <button type="button"
+                    class="content-tab"
+                    id="videoTab"
+                    onclick="showVideo()">
+
+                <i class="fa-solid fa-video"></i>
+                Video
+
+            </button>
+
+        </div>
+
+
+        <!-- ================= FORM ================= -->
+
+        <form action="/generate-caption"
+              method="POST"
+              enctype="multipart/form-data"
+              id="captionForm">
+
+            <!-- Hidden content type -->
+
+            <input type="hidden"
+                   name="content_type"
+                   id="contentType"
+                   value="image">
+
+
+            <!-- ================= IMAGE UPLOAD ================= -->
+
+            <div id="imageSection">
+
+                <label class="upload-box"
+                       for="imageInput">
+
+                    <div class="upload-icon">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                    </div>
+
+                    <h2>
+                        Upload Your Image
+                    </h2>
+
+                    <p>
+                        JPG, JPEG, PNG or WEBP
+                    </p>
+
+                    <span class="upload-button">
+                        <i class="fa-solid fa-upload"></i>
+                        Choose Image
+                    </span>
+
+                    <input type="file"
+                           name="image"
+                           id="imageInput"
+                           accept="image/png,image/jpeg,image/jpg,image/webp"
+                           onchange="previewImage(event)">
+
+                </label>
+
+
+                <!-- IMAGE PREVIEW -->
+
+                <div class="preview-container"
+                     id="imagePreviewContainer">
+
+                    <img id="imagePreview"
+                         alt="Image Preview">
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= VIDEO UPLOAD ================= -->
+
+            <div id="videoSection"
+                 style="display:none;">
+
+                <label class="upload-box"
+                       for="videoInput">
+
+                    <div class="upload-icon video-icon">
+                        <i class="fa-solid fa-film"></i>
+                    </div>
+
+                    <h2>
+                        Upload Your Video
+                    </h2>
+
+                    <p>
+                        MP4, MOV, AVI or WEBM
+                    </p>
+
+                    <span class="upload-button">
+                        <i class="fa-solid fa-upload"></i>
+                        Choose Video
+                    </span>
+
+                    <input type="file"
+                           name="video"
+                           id="videoInput"
+                           accept="video/mp4,video/mov,video/avi,video/webm"
+                           onchange="previewVideo(event)">
+
+                </label>
+
+
+                <!-- VIDEO PREVIEW -->
+
+                <div class="preview-container"
+                     id="videoPreviewContainer">
+
+                    <video id="videoPreview"
+                           controls></video>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= OPTIONS ================= -->
+
+            <div class="options-section">
+
+                <div class="options-title">
+
+                    <span class="section-label">
+                        CUSTOMIZE
+                    </span>
+
+                    <h2>
+                        Caption Settings
+                    </h2>
+
+                    <p>
+                        Choose how you want your AI-generated caption
+                        to sound.
+                    </p>
+
+                </div>
+
+
+                <div class="options-grid">
+
+                    <!-- PLATFORM -->
+
+                    <div class="option-group">
+
+                        <label for="platform">
+                            <i class="fa-solid fa-share-nodes"></i>
+                            Platform
+                        </label>
+
+                        <select name="platform"
+                                id="platform">
+
+                            <option value="Instagram">
+                                Instagram
+                            </option>
+
+                            <option value="Facebook">
+                                Facebook
+                            </option>
+
+                            <option value="LinkedIn">
+                                LinkedIn
+                            </option>
+
+                            <option value="X">
+                                X
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- STYLE -->
+
+                    <div class="option-group">
+
+                        <label for="style">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            Caption Style
+                        </label>
+
+                        <select name="style"
+                                id="style">
+
+                            <option value="Aesthetic">
+                                Aesthetic
+                            </option>
+
+                            <option value="Funny">
+                                Funny
+                            </option>
+
+                            <option value="Professional">
+                                Professional
+                            </option>
+
+                            <option value="Motivational">
+                                Motivational
+                            </option>
+
+                            <option value="Travel">
+                                Travel
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- LENGTH -->
+
+                    <div class="option-group">
+
+                        <label for="length">
+                            <i class="fa-solid fa-ruler-horizontal"></i>
+                            Caption Length
+                        </label>
+
+                        <select name="length"
+                                id="length">
+
+                            <option value="Short">
+                                Short
+                            </option>
+
+                            <option value="Medium" selected>
+                                Medium
+                            </option>
+
+                            <option value="Long">
+                                Long
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= GENERATE BUTTON ================= -->
+
+            <button type="submit"
+                    class="generate-button"
+                    id="generateButton">
+
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                Generate Caption
+
+            </button>
+
+
+            <!-- LOADING -->
+
+            <div class="loading-message"
+                 id="loadingMessage">
+
+                <div class="loading-spinner"></div>
+
+                <p>
+                    AI is analyzing your content...
+                </p>
+
+                <span>
+                    Please wait a moment.
+                </span>
+
+            </div>
+
+        </form>
+
+
+        <!-- ================= ERROR ================= -->
+
+        {% if error %}
+
+        <div class="error-box">
+
+            <i class="fa-solid fa-circle-exclamation"></i>
+
+            <div>
+                <strong>Something went wrong</strong>
+                <p>{{ error }}</p>
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- ================= RESULTS ================= -->
+
+        {% if caption1 %}
+
+        <section class="results-section">
+
+            <div class="results-heading">
+
+                <span class="section-label">
+                    AI RESULT
+                </span>
+
+                <h2>
+                    Your Generated Captions
+                </h2>
+
+                {% if category %}
+                <p class="category-result">
+                    <strong>Category:</strong>
+                    {{ category }}
+                </p>
+                {% endif %}
+
+            </div>
+
+
+            <!-- CAPTION 1 -->
+
+            <div class="caption-card">
+
+                <div class="caption-card-header">
+
+                    <span>
+                        Caption 1
+                    </span>
+
+                    <button type="button"
+                            onclick="copyText('caption1')">
+
+                        <i class="fa-regular fa-copy"></i>
+                        Copy
+
+                    </button>
+
+                </div>
+
+                <p id="caption1">
+                    {{ caption1 }}
+                </p>
+
+            </div>
+
+
+            <!-- CAPTION 2 -->
+
+            {% if caption2 %}
+
+            <div class="caption-card">
+
+                <div class="caption-card-header">
+
+                    <span>
+                        Caption 2
+                    </span>
+
+                    <button type="button"
+                            onclick="copyText('caption2')">
+
+                        <i class="fa-regular fa-copy"></i>
+                        Copy
+
+                    </button>
+
+                </div>
+
+                <p id="caption2">
+                    {{ caption2 }}
+                </p>
+
+            </div>
+
+            {% endif %}
+
+
+            <!-- CAPTION 3 -->
+
+            {% if caption3 %}
+
+            <div class="caption-card">
+
+                <div class="caption-card-header">
+
+                    <span>
+                        Caption 3
+                    </span>
+
+                    <button type="button"
+                            onclick="copyText('caption3')">
+
+                        <i class="fa-regular fa-copy"></i>
+                        Copy
+
+                    </button>
+
+                </div>
+
+                <p id="caption3">
+                    {{ caption3 }}
+                </p>
+
+            </div>
+
+            {% endif %}
+
+
+            <!-- HASHTAGS -->
+
+            {% if hashtags %}
+
+            <div class="result-extra">
+
+                <h3>
+                    <i class="fa-solid fa-hashtag"></i>
+                    Hashtags
+                </h3>
+
+                <p>
+                    {{ hashtags }}
+                </p>
+
+            </div>
+
+            {% endif %}
+
+
+            <!-- EMOJIS -->
+
+            {% if emojis %}
+
+            <div class="result-extra">
+
+                <h3>
+                    <i class="fa-regular fa-face-smile"></i>
+                    Emojis
+                </h3>
+
+                <p class="emoji-result">
+                    {{ emojis }}
+                </p>
+
+            </div>
+
+            {% endif %}
+
+        </section>
+
+        {% endif %}
+
+    </section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="home-footer">
+
+    <div>
+
+        <strong>
+            <i class="fa-solid fa-robot"></i>
+            AI Caption Generator
+        </strong>
+
+        <p>
+            Professional AI-powered social media caption assistant.
+        </p>
+
+    </div>
+
+    <div>
+        © 2026 AI Caption Generator
+    </div>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+function showImage() {
+
+    document.getElementById("imageSection").style.display = "block";
+    document.getElementById("videoSection").style.display = "none";
+
+    document.getElementById("contentType").value = "image";
+
+    document.getElementById("imageTab").classList.add("active");
+    document.getElementById("videoTab").classList.remove("active");
+
+    document.getElementById("videoInput").value = "";
+
+}
+
+
+function showVideo() {
+
+    document.getElementById("imageSection").style.display = "none";
+    document.getElementById("videoSection").style.display = "block";
+
+    document.getElementById("contentType").value = "video";
+
+    document.getElementById("videoTab").classList.add("active");
+    document.getElementById("imageTab").classList.remove("active");
+
+    document.getElementById("imageInput").value = "";
+
+}
+
+
+function previewImage(event) {
+
+    const file = event.target.files[0];
+
+    if (!file) {
+        return;
+    }
+
+    const preview = document.getElementById("imagePreview");
+    const container = document.getElementById("imagePreviewContainer");
+
+    preview.src = URL.createObjectURL(file);
+
+    container.style.display = "block";
+
+}
+
+
+function previewVideo(event) {
+
+    const file = event.target.files[0];
+
+    if (!file) {
+        return;
+    }
+
+    const preview = document.getElementById("videoPreview");
+    const container = document.getElementById("videoPreviewContainer");
+
+    preview.src = URL.createObjectURL(file);
+
+    container.style.display = "block";
+
+}
+
+
+document.getElementById("captionForm").addEventListener("submit", function() {
+
+    document.getElementById("generateButton").disabled = true;
+
+    document.getElementById("generateButton").innerHTML =
+        '<i class="fa-solid fa-spinner fa-spin"></i> Generating...';
+
+    document.getElementById("loadingMessage").style.display = "flex";
+
+});
+
+
+function copyText(id) {
+
+    const text = document.getElementById(id).innerText;
+
+    navigator.clipboard.writeText(text);
+
+    alert("Caption copied!");
+
+}
+
+</script>
+
+
+</body>
+</html>

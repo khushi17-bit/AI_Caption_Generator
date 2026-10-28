@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Captions | AI Caption Generator</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        🤖 AI Caption Generator
+    </div>
+
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/generate">Generate</a></li>
+        <li><a href="/captions">My Captions</a></li>
+    </ul>
+
+</nav>
+
+<main class="container">
+
+    <h1 style="text-align:center; color:#4f46e5; margin-bottom:30px;">
+        🖼️ My Captions
+    </h1>
+
+    {% if captions %}
+
+        {% for item in captions %}
+
+        <div class="card">
+
+            <h3>{{ item["image_name"] }}</h3>
+
+            <img src="{{ url_for('uploaded_file', filename=item['image_name']) }}"
+                 alt="Uploaded image"
+                 class="uploaded-image">
+
+            <p style="color:#777; margin-bottom:15px;">
+                Generated: {{ item["created_at"] }}
+            </p>
+
+            <p>
+                <strong>Caption:</strong><br>
+                {{ item["caption"] }}
+            </p>
+
+            <p style="margin-top:15px;">
+                <strong>Hashtags:</strong><br>
+                {{ item["hashtags"] }}
+            </p>
+
+            <p style="margin-top:15px;">
+                <strong>Emojis:</strong><br>
+                {{ item["emojis"] }}
+            </p>
+
+            <form action="/delete-caption/{{ item['id'] }}"
+                  method="POST"
+                  style="margin-top:20px;">
+
+                <button type="submit"
+                        onclick="return confirm('Delete this saved caption?')">
+                    🗑️ Delete Caption
+                </button>
+
+            </form>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="card" style="text-align:center;">
+
+            <h3>No captions saved yet</h3>
+
+            <p>
+                Generate a caption while logged in and it will appear here.
+            </p>
+
+            <a href="/generate" class="dashboard-btn">
+                Generate a Caption →
+            </a>
+
+        </div>
+
+    {% endif %}
+
+</main>
+
+</body>
+</html>

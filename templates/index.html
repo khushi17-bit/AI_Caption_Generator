@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Caption Generator</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <i class="fa-solid fa-robot"></i>
+        AI Caption Generator
+    </div>
+
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/generate">Generate</a></li>
+        <li><a href="/features">Features</a></li>
+        <li><a href="/about">About</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- ================= RESULT PAGE ================= -->
+
+<main class="result-page">
+
+    <div class="result-container">
+
+        <!-- Header -->
+
+        <div class="result-header">
+
+            <h1>
+                ✨ Your AI Captions Are Ready
+            </h1>
+
+            <p>
+                AI-generated captions based on your image and selected preferences.
+            </p>
+
+        </div>
+
+
+        <!-- ================= MAIN RESULT LAYOUT ================= -->
+
+        <div class="result-layout">
+
+
+            <!-- ================= IMAGE ================= -->
+
+            <div class="result-image-card">
+
+                <h2>
+                    <i class="fa-solid fa-image"></i>
+                    Uploaded Image
+                </h2>
+
+                {% if image_file %}
+
+                    <img
+                        src="{{ url_for('uploaded_file', filename=image_file) }}"
+                        alt="Uploaded Image">
+
+                {% endif %}
+
+
+                <!-- Category -->
+
+                {% if category %}
+
+                    <div class="category-box">
+
+                        <strong>
+                            <i class="fa-solid fa-tag"></i>
+                            Category:
+                        </strong>
+
+                        <span>
+                            {{ category }}
+                        </span>
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- ================= CAPTIONS ================= -->
+
+            <div class="caption-results">
+
+
+                <!-- Caption 1 -->
+
+                <div class="caption-card">
+
+                    <h3>
+                        ✨ Caption 1
+                    </h3>
+
+                    <p class="caption-text" id="caption1">
+                        {{ caption1 }}
+                    </p>
+
+                    <button
+                        class="copy-btn"
+                        onclick="copyCaption('caption1')">
+
+                        <i class="fa-regular fa-copy"></i>
+                        Copy Caption
+
+                    </button>
+
+                </div>
+
+
+                <!-- Caption 2 -->
+
+                <div class="caption-card">
+
+                    <h3>
+                        ✨ Caption 2
+                    </h3>
+
+                    <p class="caption-text" id="caption2">
+                        {{ caption2 }}
+                    </p>
+
+                    <button
+                        class="copy-btn"
+                        onclick="copyCaption('caption2')">
+
+                        <i class="fa-regular fa-copy"></i>
+                        Copy Caption
+
+                    </button>
+
+                </div>
+
+
+                <!-- Caption 3 -->
+
+                <div class="caption-card">
+
+                    <h3>
+                        ✨ Caption 3
+                    </h3>
+
+                    <p class="caption-text" id="caption3">
+                        {{ caption3 }}
+                    </p>
+
+                    <button
+                        class="copy-btn"
+                        onclick="copyCaption('caption3')">
+
+                        <i class="fa-regular fa-copy"></i>
+                        Copy Caption
+
+                    </button>
+
+                </div>
+
+
+                <!-- ================= HASHTAGS + EMOJIS ================= -->
+
+                <div class="extra-results">
+
+
+                    <div class="extra-card">
+
+                        <h3>
+                            🏷 Hashtags
+                        </h3>
+
+                        <p id="hashtags">
+                            {{ hashtags }}
+                        </p>
+
+                    </div>
+
+
+                    <div class="extra-card">
+
+                        <h3>
+                            😊 Emojis
+                        </h3>
+
+                        <p id="emojis">
+                            {{ emojis }}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= DOWNLOAD ================= -->
+
+        <div class="generate-again">
+
+            <button
+                class="generate-again-btn"
+                onclick="downloadCaption()">
+
+                <i class="fa-solid fa-download"></i>
+                Download Captions
+
+            </button>
+
+
+            <a href="/generate">
+
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                Generate Another
+
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+function copyCaption(id) {
+
+    const caption = document.getElementById(id).innerText;
+
+    navigator.clipboard.writeText(caption);
+
+    alert("✅ Caption copied successfully!");
+
+}
+
+
+function downloadCaption() {
+
+    const caption1 =
+        document.getElementById("caption1").innerText;
+
+    const caption2 =
+        document.getElementById("caption2").innerText;
+
+    const caption3 =
+        document.getElementById("caption3").innerText;
+
+    const hashtags =
+        document.getElementById("hashtags").innerText;
+
+    const emojis =
+        document.getElementById("emojis").innerText;
+
+
+    const text =
+`AI Caption Generator
+
+Caption 1:
+${caption1}
+
+Caption 2:
+${caption2}
+
+Caption 3:
+${caption3}
+
+Hashtags:
+${hashtags}
+
+Emojis:
+${emojis}`;
+
+
+    const blob = new Blob(
+        [text],
+        { type: "text/plain" }
+    );
+
+
+    const link = document.createElement("a");
+
+    link.href = URL.createObjectURL(blob);
+
+    link.download = "AI_Captions.txt";
+
+    link.click();
+
+}
+
+
+</script>
+
+
+</body>
+</html>

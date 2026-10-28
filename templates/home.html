@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Caption Generator</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-robot"></i>
+
+        AI Caption Generator
+
+    </div>
+
+
+    <ul>
+
+        <li>
+            <a href="/">Home</a>
+        </li>
+
+        <li>
+            <a href="/generate">Generate</a>
+        </li>
+
+        <li>
+            <a href="/features">Features</a>
+        </li>
+
+        <li>
+            <a href="/about">About</a>
+        </li>
+        <li>
+            <a href="/flowchart">Flow Chart</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="home-hero">
+
+    <div class="hero-content">
+
+
+        <div class="hero-badge">
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            AI-Powered Social Media Assistant
+
+        </div>
+
+
+        <h1>
+
+            Create Captions That
+            <span>Stand Out.</span>
+
+        </h1>
+
+
+        <p>
+
+            Upload your image and let AI create meaningful,
+            engaging and platform-ready captions in seconds.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="/generate"
+               class="primary-home-btn">
+
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                Generate Caption
+
+            </a>
+
+
+            <a href="/features"
+               class="secondary-home-btn">
+
+                Explore Features
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+
+        <div class="hero-stats">
+
+            <div>
+
+                <strong>3</strong>
+
+                <span>Caption Ideas</span>
+
+            </div>
+
+
+            <div>
+
+                <strong>5+</strong>
+
+                <span>Caption Styles</span>
+
+            </div>
+
+
+            <div>
+
+                <strong>AI</strong>
+
+                <span>Powered</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- AI CARD -->
+
+    <div class="hero-ai-card">
+
+        <div class="ai-card-header">
+
+            <div class="ai-icon">
+
+                <i class="fa-solid fa-robot"></i>
+
+            </div>
+
+            <div>
+
+                <strong>AI Caption Assistant</strong>
+
+                <small>Ready to create ✨</small>
+
+            </div>
+
+        </div>
+
+
+        <div class="ai-preview-image">
+
+            <i class="fa-regular fa-image"></i>
+
+            <span>Your image</span>
+
+        </div>
+
+
+        <div class="ai-caption-preview">
+
+            <span>AI Generated Caption</span>
+
+            <p>
+
+                Turning moments into stories,
+                one caption at a time. ✨
+
+            </p>
+
+        </div>
+
+
+        <div class="ai-tags">
+
+            <span>#Creative</span>
+
+            <span>#Lifestyle</span>
+
+            <span>#Moments</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="home-features">
+
+    <div class="section-heading">
+
+        <span>WHY USE IT?</span>
+
+        <h2>Everything You Need for Better Captions</h2>
+
+        <p>
+
+            Create engaging social media content without
+            spending hours thinking of the perfect words.
+
+        </p>
+
+    </div>
+
+
+    <div class="home-feature-grid">
+
+
+        <div class="home-feature-card">
+
+            <div class="feature-icon purple">
+
+                <i class="fa-solid fa-brain"></i>
+
+            </div>
+
+            <h3>AI Powered</h3>
+
+            <p>
+
+                Google Gemini AI analyzes your image
+                and understands its context.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="home-feature-card">
+
+            <div class="feature-icon pink">
+
+                <i class="fa-solid fa-layer-group"></i>
+
+            </div>
+
+            <h3>Multiple Captions</h3>
+
+            <p>
+
+                Get three different caption ideas
+                so you can choose your favorite.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="home-feature-card">
+
+            <div class="feature-icon blue">
+
+                <i class="fa-solid fa-hashtag"></i>
+
+            </div>
+
+            <h3>Smart Hashtags</h3>
+
+            <p>
+
+                Generate relevant hashtags to make
+                your posts more discoverable.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="home-feature-card">
+
+            <div class="feature-icon orange">
+
+                <i class="fa-regular fa-face-smile"></i>
+
+            </div>
+
+            <h3>Emoji Suggestions</h3>
+
+            <p>
+
+                Get suitable emojis that match
+                your generated captions.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="how-section">
+
+    <div class="section-heading">
+
+        <span>SIMPLE PROCESS</span>
+
+        <h2>How It Works</h2>
+
+        <p>
+
+            Create your perfect caption in just three simple steps.
+
+        </p>
+
+    </div>
+
+
+    <div class="steps-grid">
+
+
+        <div class="step-card">
+
+            <div class="step-number">01</div>
+
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+
+            <h3>Upload Image</h3>
+
+            <p>
+
+                Choose the image you want to post
+                on social media.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="step-card">
+
+            <div class="step-number">02</div>
+
+            <i class="fa-solid fa-sliders"></i>
+
+            <h3>Customize</h3>
+
+            <p>
+
+                Select your platform, style and
+                preferred caption length.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="step-card">
+
+            <div class="step-number">03</div>
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            <h3>Generate</h3>
+
+            <p>
+
+                Let AI create meaningful captions,
+                hashtags and emojis.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CTA ================= -->
+
+<section class="home-cta">
+
+    <div>
+
+        <h2>Ready to Create Your Caption?</h2>
+
+        <p>
+
+            Turn your images into engaging social media content.
+
+        </p>
+
+    </div>
+
+
+    <a href="/generate">
+
+        Start Generating
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+    </a>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="home-footer">
+
+    <div>
+
+        <strong>
+
+            <i class="fa-solid fa-robot"></i>
+
+            AI Caption Generator
+
+        </strong>
+
+        <p>
+
+            Professional AI-powered social media caption assistant.
+
+        </p>
+
+    </div>
+
+
+    <div>
+
+        © 2026 AI Caption Generator
+
+    </div>
+
+</footer>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | AI Caption Generator</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        🤖 AI Caption Generator
+    </div>
+
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/generate">Generate</a></li>
+        <li><a href="/features">Features</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/flowchart">Flow Chart</a></li>
+
+    </ul>
+
+</nav>
+
+
+<section class="dashboard">
+
+    <div class="dashboard-header">
+
+        <h1>
+            👋 Welcome, {{ session.get("user_name") }}!
+        </h1>
+
+        <p>
+            Welcome to your AI Caption Generator dashboard.
+        </p>
+
+    </div>
+
+
+    <div class="dashboard-grid">
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                ✨
+            </div>
+
+            <h2>Generate Caption</h2>
+
+            <p>
+                Upload an image and generate AI-powered captions,
+                hashtags and emojis.
+            </p>
+
+            <a href="/generate" class="dashboard-btn">
+                Generate →
+            </a>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                🖼️
+            </div>
+
+            <h2>My Captions</h2>
+
+            <p>
+                View your previously generated captions and
+                social media content.
+            </p>
+
+            <a href="/captions" class="dashboard-btn">
+                View History
+            </a>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-icon">
+                👤
+            </div>
+
+            <h2>My Account</h2>
+
+            <p>
+                Logged in as:
+                <strong>{{ session.get("user_email") }}</strong>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>

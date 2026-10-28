@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Features | AI Caption Generator</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        <i class="fa-solid fa-robot"></i>
+        AI Caption Generator
+    </div>
+
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+
+        <li>
+            <a href="/generate">Generate</a>
+        </li>
+
+        <li>
+            <a href="/features" class="active">Features</a>
+        </li>
+
+        <li>
+            <a href="/about">About</a>
+        </li>
+        <li>
+            <a href="/flowchart">Flow Chart</a>
+        </li>
+    </ul>
+
+</nav>
+
+
+<!-- ================= FEATURES HERO ================= -->
+
+<section class="features-hero">
+
+    <div class="features-hero-content">
+
+        <div class="features-badge">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            POWERFUL AI FEATURES
+        </div>
+
+        <h1>
+            Everything You Need to
+            <span>Create Better Captions</span>
+        </h1>
+
+        <p>
+            From image understanding to hashtags and emojis,
+            our AI helps you create engaging social media
+            content quickly and effortlessly.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MAIN FEATURES ================= -->
+
+<section class="features-main">
+
+    <div class="feature-title">
+
+        <span>SMART & SIMPLE</span>
+
+        <h2>Powerful Features</h2>
+
+        <p>
+            Designed to make social media content creation
+            faster, easier and more creative.
+        </p>
+
+    </div>
+
+
+    <div class="big-feature-grid">
+
+
+        <!-- Feature 1 -->
+
+        <div class="big-feature-card">
+
+            <div class="big-feature-icon purple-bg">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+
+            <div>
+
+                <h3>AI Image Analysis</h3>
+
+                <p>
+                    Upload an image and our AI analyzes
+                    its content, context and visual elements
+                    before generating captions.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Understands image content
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Detects image category
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Creates context-aware captions
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- Feature 2 -->
+
+        <div class="big-feature-card">
+
+            <div class="big-feature-icon pink-bg">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+
+            <div>
+
+                <h3>Multiple Caption Suggestions</h3>
+
+                <p>
+                    Get three different caption ideas
+                    for the same image so you can select
+                    the one that fits your post best.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        3 unique captions
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Different wording
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Easy copy option
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- Feature 3 -->
+
+        <div class="big-feature-card">
+
+            <div class="big-feature-icon blue-bg">
+                <i class="fa-solid fa-sliders"></i>
+            </div>
+
+            <div>
+
+                <h3>Custom Caption Style</h3>
+
+                <p>
+                    Choose the writing style that matches
+                    the mood and purpose of your social
+                    media post.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Aesthetic
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Funny
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Professional
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Motivational & Travel
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- Feature 4 -->
+
+        <div class="big-feature-card">
+
+            <div class="big-feature-icon orange-bg">
+                <i class="fa-solid fa-ruler-horizontal"></i>
+            </div>
+
+            <div>
+
+                <h3>Caption Length Control</h3>
+
+                <p>
+                    Control how detailed your caption should
+                    be according to your content and platform.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Short
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Medium
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Long
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- Feature 5 -->
+
+        <div class="big-feature-card">
+
+            <div class="big-feature-icon green-bg">
+                <i class="fa-solid fa-hashtag"></i>
+            </div>
+
+            <div>
+
+                <h3>Smart Hashtags</h3>
+
+                <p>
+                    Generate relevant hashtags based on
+                    the uploaded image and selected content.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Relevant hashtags
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Social-media friendly
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Ready to copy
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- Feature 6 -->
+
+        <div class="big-feature-card">
+
+            <div class="big-feature-icon yellow-bg">
+                <i class="fa-regular fa-face-smile"></i>
+            </div>
+
+            <div>
+
+                <h3>Emoji Suggestions</h3>
+
+                <p>
+                    Get emojis that naturally match the
+                    mood and theme of your generated caption.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Mood-based suggestions
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Exactly 3 emojis
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Easy to copy
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PLATFORM SECTION ================= -->
+
+<section class="platform-section">
+
+    <div class="feature-title">
+
+        <span>SUPPORTED PLATFORMS</span>
+
+        <h2>Create Content for Your Favorite Platform</h2>
+
+        <p>
+            Select your platform and generate captions
+            suited to your social media needs.
+        </p>
+
+    </div>
+
+
+    <div class="platform-grid">
+
+        <div class="platform-card">
+
+            <i class="fa-brands fa-instagram"></i>
+
+            <h3>Instagram</h3>
+
+            <p>
+                Creative captions for your posts and reels.
+            </p>
+
+        </div>
+
+
+        <div class="platform-card">
+
+            <i class="fa-brands fa-facebook"></i>
+
+            <h3>Facebook</h3>
+
+            <p>
+                Engaging captions for your social posts.
+            </p>
+
+        </div>
+
+
+        <div class="platform-card">
+
+            <i class="fa-brands fa-linkedin"></i>
+
+            <h3>LinkedIn</h3>
+
+            <p>
+                Professional captions for your career content.
+            </p>
+
+        </div>
+
+
+        <div class="platform-card">
+
+            <i class="fa-brands fa-x-twitter"></i>
+
+            <h3>X</h3>
+
+            <p>
+                Short and impactful captions for X.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="features-cta">
+
+    <div>
+
+        <h2>Ready to Generate Your Caption?</h2>
+
+        <p>
+            Upload an image and let AI do the creative work.
+        </p>
+
+    </div>
+
+
+    <a href="/generate">
+
+        Start Generating
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+    </a>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="home-footer">
+
+    <div>
+
+        <strong>
+            <i class="fa-solid fa-robot"></i>
+            AI Caption Generator
+        </strong>
+
+        <p>
+            Professional AI-powered social media caption assistant.
+        </p>
+
+    </div>
+
+
+    <div>
+        © 2026 AI Caption Generator
+    </div>
+
+</footer>
+
+
+</body>
+</html>
