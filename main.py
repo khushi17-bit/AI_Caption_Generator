@@ -646,6 +646,7 @@ not merely list what is visible.
                 "Video is ACTIVE. Generating caption..."
             )
 
+           
             # ------------------------------------------------
             # Generate captions from video
             # ------------------------------------------------
@@ -658,10 +659,10 @@ not merely list what is visible.
                 ]
             )
 
-           output = (response.text or "").strip()
+            output = (response.text or "").strip()
 
-           if not output:
-                 raise ValueError("Gemini returned an empty response.")
+            if not output:
+                raise ValueError("Gemini returned an empty response.")
 
             print("\n========== GEMINI VIDEO OUTPUT ==========")
             print(output)
