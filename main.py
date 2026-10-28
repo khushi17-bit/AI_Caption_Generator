@@ -223,42 +223,56 @@ Exactly 3 relevant emojis.
         # Gemini AI Request
         # ----------------------------------------------------
 
+      
+        # Gemini AI Request with Retry
+
         try:
+            output = None
 
-            response = client.models.generate_content(
-                model="gemini-3.8-flash",
-                contents=[prompt, img]
-            )
+            for attempt in range(3):
+                try:
+                    response = client.models.generate_content(
+                        model="gemini-3.8-flash",
+                        contents=[prompt, img]
+                    )
 
-            output = response.text.strip()
+                    output = response.text.strip()
+                    break
+
+                except Exception as e:
+                    error_message = str(e).upper()
+
+                    temporary_error = any(
+                        term in error_message
+                        for term in [
+                            "503",
+                            "UNAVAILABLE",
+                            "HIGH DEMAND",
+                            "429",
+                            "RESOURCE_EXHAUSTED"
+                        ]
+                    )
+
+                    if not temporary_error or attempt == 2:
+                        raise
+
+                    wait_seconds = 2 ** (attempt + 1)
+                    print(
+                        f"Gemini temporarily unavailable. "
+                        f"Retrying in {wait_seconds} seconds..."
+                    )
+                    time.sleep(wait_seconds)
 
         except Exception as e:
-
             print("\n========== IMAGE ERROR ==========")
             print(str(e))
             print("=================================\n")
 
             return render_template(
                 "generate.html",
-                error="Image processing failed: " + str(e)
+                error="Image processing failed. Please try again later."
             )
 
-        print("\n========== GEMINI IMAGE OUTPUT ==========")
-        print(output)
-        print("=========================================\n")
-
-        # ----------------------------------------------------
-        # Variables
-        # ----------------------------------------------------
-
-        category = ""
-        caption1 = ""
-        caption2 = ""
-        caption3 = ""
-        hashtags = ""
-        emojis = ""
-
-        section = None
 
         # ----------------------------------------------------
         # Parse Gemini Response
