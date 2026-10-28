@@ -144,21 +144,83 @@ def generate():
         # AI Prompt
         # ----------------------------------------------------
 
+      
         prompt = f"""
-You are an expert social media caption writer.
+You are a skilled social media caption writer who understands
+visual storytelling, illustrations, photography and human emotions.
 
-Analyze the uploaded image carefully and understand what is actually visible.
+Analyze the uploaded image carefully before writing anything.
+
+Platform: {platform}
+Selected style: {style}
+Requested length: {length}
+
+STEP 1 — UNDERSTAND THE IMAGE
+
+Identify:
+- What is actually visible?
+- What is the main scene, activity or moment?
+- What mood or atmosphere is supported by the visuals?
+- Is it a photograph, digital illustration, anime-style artwork,
+  fantasy artwork, landscape, portrait or another visual type?
+- What makes this particular image distinctive?
+
+IMPORTANT:
+Visual style and image context are different things.
+
+For example, "anime character" describes a type of subject.
+It does not explain the scene, mood or story.
+
+If the image is an illustrated fantasy scene, describe the actual
+visible setting, activity and atmosphere when supported by evidence.
+Do not stop at labels such as "anime character", "cartoon girl",
+"beautiful image" or "nice picture".
+
+Do not assume that an illustration depicts a real event.
+Do not invent a location, relationship, activity or backstory.
+Do not claim a specific character identity unless it is certain
+and relevant to the caption.
+
+STEP 2 — WRITE 3 DISTINCT CAPTIONS
+
+Write exactly 3 captions that:
+- Match the actual image and its visible context.
+- Sound natural, personal and human-written.
+- Feel specific to this image, not suitable for every image.
+- Express the scene or mood instead of merely listing objects.
+- Have different wording and perspectives.
+- Avoid robotic phrases and unnecessary descriptions.
+- Do not all start with the same words.
+- Do not mention "AI", "image", "photo" or "picture".
 
 Platform: {platform}
 Style: {style}
-Caption Length: {length}
 
-Create exactly 3 different, natural and meaningful social media captions.
+Style instructions:
+Aesthetic: soft, expressive, elegant and visually fitting.
+Funny: playful and relatable only when appropriate.
+Professional: clear, polished and purposeful.
+Motivational: inspiring without forced positivity.
+Travel: travel-related only when supported by the image.
+
+LENGTH:
+Short: 8-10 words per caption.
+Medium: 11-13 words per caption.
+Long: 13-16 words per caption.
+
+STEP 3 — CHECK YOUR WORK
+
+Before responding, check that:
+- Each caption reflects the actual image.
+- No unsupported story or detail has been invented.
+- The captions are not generic or repetitive.
+- The selected style and requested length are followed.
+- Artwork is understood as artwork, not automatically as a real scene.
 
 Return ONLY in this exact format:
 
 Image Category:
-<one short category>
+<short description of the main scene or visual context>
 
 Caption 1:
 <caption>
@@ -175,48 +237,9 @@ Hashtags:
 Emojis:
 <exactly 3 relevant emojis>
 
-RULES:
-
-- All captions must be relevant to the uploaded image.
-- All 3 captions must be different.
-- Write naturally like a real person.
-- Do not invent people, locations, objects or events.
-- Do not say "this image", "this photo" or "this picture".
-- Do not use unnecessary words.
-
-LENGTH:
-
-Short:
-8-10 words.
-
-Medium:
-11-13 words.
-
-Long:
-13-16 words.
-
-STYLE:
-
-Aesthetic:
-Soft, elegant and visually appealing.
-
-Funny:
-Light, natural and relatable.
-
-Professional:
-Clear, polished and confident.
-
-Motivational:
-Positive and inspiring.
-
-Travel:
-Natural and engaging travel-related wording when appropriate.
-
-HASHTAGS:
-Exactly 5 relevant hashtags.
-
-EMOJIS:
-Exactly 3 relevant emojis.
+The category should describe the scene or context when possible,
+not merely label the subject as an anime or cartoon character.
+Hashtags and emojis must match the actual image.
 """
 
         # ----------------------------------------------------
@@ -446,87 +469,77 @@ Exactly 3 relevant emojis.
         # AI Prompt for Video
         # ----------------------------------------------------
 
+       
         prompt = f"""
-You are an advanced social media caption generator.
+You are an expert social media storyteller and caption writer.
 
-Your job is NOT simply to identify objects in the video.
-
-Your main job is to understand the STORY, EVENT, ACTIVITY and CONTEXT
-of the video.
-
-Analyze the uploaded video carefully from beginning to end.
-
-FIRST determine what the video is actually about.
-
-Pay special attention to:
-
-- The main event or occasion
-- What people are doing
-- The overall activity
-- The relationship between the different visual elements
-- The mood and atmosphere
-- Important actions happening in the video
-- Objects that help identify the event
-- Text, decorations, signs or other clues visible in the video
-
-IMPORTANT CONTEXT RULE:
-
-Do NOT make the caption mainly about an object when that object is
-only part of a larger event.
-
-For example:
-
-If the video shows someone cutting a cake with birthday decorations,
-the main context is likely a BIRTHDAY CELEBRATION, not simply "cake".
-
-GOOD:
-"Celebrating another year of life, surrounded by love, laughter and my favorite people."
-
-BAD:
-"A delicious cake making the celebration extra sweet."
-
-The cake is an important clue, but the EVENT is the birthday.
-
-If the video shows decorations, candles, people celebrating,
-birthday wishes, or a cake-cutting ceremony, consider the overall
-birthday celebration rather than focusing only on the cake.
-
-However, NEVER assume "birthday" if there is no reasonable visual
-evidence for it.
-
-Do not invent:
-
-- Age
-- Location
-- Names
-- Relationships
-- Specific people
-- Events
-- Emotions
-- Activities
-
-Only use information supported by the video.
+Analyze the uploaded video as a sequence of visual moments.
+Understand the overall scene and activity before writing captions.
 
 Platform: {platform}
-Style: {style}
-Caption Length: {length}
+Selected style: {style}
+Requested length: {length}
 
-Create exactly 3 different captions.
+STEP 1 — UNDERSTAND THE VIDEO
 
-The 3 captions must:
+Determine:
+- What is happening throughout the video?
+- What is the main activity, event or experience?
+- How do the visible moments connect?
+- What atmosphere or mood is supported by the visuals?
+- What makes this video different from a generic video?
 
-1. Focus on the main event or story.
-2. Include important context from the video.
-3. Sound natural and human.
-4. Be meaningful rather than generic.
-5. Be different from each other.
-6. Match the selected platform and style.
-7. Avoid unnecessary description of individual objects.
+Do not describe only the most obvious object.
+Understand the overall context using the available visual evidence.
 
-Return ONLY in this format:
+For example:
+- Cake cutting with birthday decorations may indicate a birthday.
+- Wedding rituals or wedding decorations may indicate a wedding.
+- A sequence of scenic locations may indicate a travel experience.
+- An illustrated animation should be understood as animation,
+  not automatically described as a real-life event.
+
+These are examples, not assumptions. Use them only when supported
+by the actual video.
+
+Do not invent dialogue, names, ages, relationships, locations,
+events or emotions that cannot reasonably be inferred.
+
+STEP 2 — WRITE 3 CAPTIONS
+
+Create exactly 3 different captions that:
+- Explain the main experience, event or activity.
+- Reflect the overall video, not just one frame.
+- Sound natural, expressive and human-written.
+- Include meaningful context without inventing a story.
+- Avoid generic phrases and repetitive wording.
+- Do not use robotic openings or unnecessary descriptions.
+
+Style:
+Aesthetic: soft, expressive and visually fitting.
+Funny: playful and relatable when appropriate.
+Professional: polished and natural.
+Motivational: inspiring when supported by the context.
+Travel: travel-focused only if the video is about travel.
+
+Length:
+Short: 8-10 words per caption.
+Medium: 11-13 words per caption.
+Long: 13-16 words per caption.
+
+STEP 3 — QUALITY CHECK
+
+Check that all captions:
+- Reflect the actual video context.
+- Are distinct from one another.
+- Match the selected style and length.
+- Do not invent events or unsupported details.
+- Describe the experience rather than simply listing objects.
+
+Return ONLY in this exact format:
 
 Image Category:
-<main event or activity>
+<main event, activity or visual context>
 
 Caption 1:
 <caption>
@@ -543,63 +556,11 @@ Hashtags:
 Emojis:
 <exactly 3 relevant emojis>
 
-LENGTH:
-
-Short:
-8-10 words.
-
-Medium:
-11-13 words.
-
-Long:
-13-16 words.
-
-STYLE:
-
-Aesthetic:
-Soft, elegant and visually appealing.
-
-Funny:
-Light, playful and relatable.
-
-Professional:
-Polished and natural.
-
-Motivational:
-Positive and inspiring when appropriate.
-
-Travel:
-Travel-focused only when the video is actually about travel.
-
-HASHTAGS:
-Exactly 5 hashtags related to the MAIN EVENT or CONTEXT,
-not just individual objects.
-
-EMOJIS:
-Exactly 3 emojis related to the MAIN EVENT or CONTEXT.
-
-FINAL QUALITY CHECK:
-
-Before creating the captions, determine:
-
-"What is this video REALLY about?"
-
-Then write the captions around that answer.
-
-Do not simply describe the most obvious object.
-
-For example:
-
-Birthday celebration → birthday-focused caption.
-Wedding celebration → wedding-focused caption.
-Travel journey → travel-focused caption.
-Graduation → graduation-focused caption.
-Festival celebration → festival-focused caption.
-Food preparation → food/cooking-focused caption.
-
-The final captions should explain the EXPERIENCE or EVENT,
-not merely list what is visible.
+Hashtags and emojis must match the video's main context.
+If the video is animation or artwork, do not automatically
+describe it as a real-life event.
 """
+
 
         # ----------------------------------------------------
         # Process Video with Gemini
