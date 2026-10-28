@@ -224,6 +224,7 @@ Exactly 3 relevant emojis.
         # ----------------------------------------------------
 
       
+   
         # Gemini AI Request with Retry
 
         try:
@@ -236,7 +237,9 @@ Exactly 3 relevant emojis.
                         contents=[prompt, img]
                     )
 
-                    output = response.text.strip()
+                    output = (response.text or "").strip()
+                    if not output:
+                         raise ValueError("Gemini returned an empty response.")
                     break
 
                 except Exception as e:
@@ -273,13 +276,19 @@ Exactly 3 relevant emojis.
                 error="Image processing failed. Please try again later."
             )
 
+        # Variables — same indentation as try/except above
+        category = ""
+        caption1 = ""
+        caption2 = ""
+        caption3 = ""
+        hashtags = ""
+        emojis = ""
 
-        # ----------------------------------------------------
+        section = None
+
+      
         # Parse Gemini Response
-        # ----------------------------------------------------
-
         for line in output.splitlines():
-
             line = line.strip()
 
             if not line:
@@ -288,90 +297,52 @@ Exactly 3 relevant emojis.
             lower = line.lower()
 
             if lower.startswith("image category"):
-
                 section = "category"
-
                 if ":" in line:
                     category = line.split(":", 1)[1].strip()
-
                 continue
 
             elif lower.startswith("caption 1"):
-
                 section = "caption1"
-
                 if ":" in line:
-                    value = line.split(":", 1)[1].strip()
-
-                    if value:
-                        caption1 = value
-
+                    caption1 = line.split(":", 1)[1].strip()
                 continue
 
             elif lower.startswith("caption 2"):
-
                 section = "caption2"
-
                 if ":" in line:
-                    value = line.split(":", 1)[1].strip()
-
-                    if value:
-                        caption2 = value
-
+                    caption2 = line.split(":", 1)[1].strip()
                 continue
 
             elif lower.startswith("caption 3"):
-
                 section = "caption3"
-
                 if ":" in line:
-                    value = line.split(":", 1)[1].strip()
-
-                    if value:
-                        caption3 = value
-
+                    caption3 = line.split(":", 1)[1].strip()
                 continue
 
             elif lower.startswith("hashtags"):
-
                 section = "hashtags"
-
                 if ":" in line:
-                    value = line.split(":", 1)[1].strip()
-
-                    if value:
-                        hashtags = value
-
+                    hashtags = line.split(":", 1)[1].strip()
                 continue
 
             elif lower.startswith("emojis"):
-
                 section = "emojis"
-
                 if ":" in line:
-                    value = line.split(":", 1)[1].strip()
-
-                    if value:
-                        emojis = value
-
+                    emojis = line.split(":", 1)[1].strip()
                 continue
 
-            # Add remaining lines
+            # Handle multiline responses
             if section == "category":
                 category += " " + line
-
             elif section == "caption1":
                 caption1 += " " + line
-
             elif section == "caption2":
                 caption2 += " " + line
-
             elif section == "caption3":
                 caption3 += " " + line
-
             elif section == "hashtags":
                 hashtags += " " + line
-
             elif section == "emojis":
                 emojis += " " + line
 
@@ -687,7 +658,10 @@ not merely list what is visible.
                 ]
             )
 
-            output = response.text.strip()
+           output = (response.text or "").strip()
+
+           if not output:
+                 raise ValueError("Gemini returned an empty response.")
 
             print("\n========== GEMINI VIDEO OUTPUT ==========")
             print(output)
